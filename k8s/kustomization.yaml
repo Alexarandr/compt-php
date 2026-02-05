@@ -1,0 +1,19 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: counter-app
+
+resources:
+  - namespace.yaml
+  - configmap.yaml
+  - secret.yaml
+  - mysql-pvc.yaml
+  - mysql-service.yaml
+  - mysql-deployment.yaml
+  - app-service.yaml
+  - app-deployment.yaml
+  - migrations-job.yaml
+  - ingress.yaml
+
+# Pour les patches de production, créer des overlays
+# Exemple: kustomize build overlays/production | kubectl apply -f -

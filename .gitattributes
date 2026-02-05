@@ -1,0 +1,20 @@
+* text=auto
+
+*.blade.php diff=html
+*.css diff=css
+*.html diff=html
+*.md diff=markdown
+*.php diff=php
+*.json diff=json
+*.yaml diff=yaml
+*.yml diff=yaml
+
+/.github export-ignore
+/k8s export-ignore
+CHANGELOG.md export-ignore
+CONTRIBUTING.md export-ignore
+DEPLOYMENT.md export-ignore
+KUBERNETES.md export-ignore
+docker-compose.yaml export-ignore
+Dockerfile export-ignore
+.dockerignore export-ignore

@@ -1,0 +1,61 @@
+# Dependencies
+/vendor
+/node_modules
+/.pnp
+.pnp.js
+
+# Production
+/build
+/dist
+/.next
+out/
+
+# Testing
+/coverage
+.phpunit.result.cache
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Laravel
+/storage
+/bootstrap/cache
+/public/storage
+/public/hot
+
+# Docker
+docker-compose.override.yml
+.docker/
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Node
+npm-debug.log
+yarn-error.log
+yarn.lock
+package-lock.json
+
+# Misc
+*.bak
+*.tmp
+.env.backup
+.phpstorm.meta.php
+_ide_helper.php

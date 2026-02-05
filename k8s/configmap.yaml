@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+  namespace: counter-app
+data:
+  APP_NAME: "Counter App"
+  APP_ENV: "local"
+  APP_DEBUG: "true"
+  LOG_CHANNEL: "stack"
+  DB_CONNECTION: "mysql"
+  DB_HOST: "mysql-service"
+  DB_PORT: "3306"
+  DB_DATABASE: "app_database"
+  DB_USERNAME: "app_user"

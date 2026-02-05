@@ -1,0 +1,67 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: laravel-migrations
+  namespace: counter-app
+spec:
+  backoffLimit: 3
+  template:
+    spec:
+      serviceAccountName: default
+      containers:
+      - name: laravel-migrations
+        image: app:latest
+        imagePullPolicy: Never
+        command: ["php", "artisan", "migrate", "--force"]
+        env:
+        - name: APP_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: APP_NAME
+        - name: APP_ENV
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: APP_ENV
+        - name: APP_DEBUG
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: APP_DEBUG
+        - name: APP_KEY
+          valueFrom:
+            secretKeyRef:
+              name: app-secrets
+              key: APP_KEY
+        - name: DB_CONNECTION
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: DB_CONNECTION
+        - name: DB_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: DB_HOST
+        - name: DB_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: DB_PORT
+        - name: DB_DATABASE
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: DB_DATABASE
+        - name: DB_USERNAME
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: DB_USERNAME
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: app-secrets
+              key: DB_PASSWORD
+      restartPolicy: Never
