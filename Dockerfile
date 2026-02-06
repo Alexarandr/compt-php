@@ -29,7 +29,7 @@ COPY --from=composer-builder /app/vendor ./vendor
 RUN mkdir -p bootstrap/cache storage/framework/{sessions,views,cache} storage/logs \
     && chown -R www-data:www-data . \
     && chmod -R 755 bootstrap/cache storage \
-    && chmod -R 644 bootstrap/cache/* storage/**/*
+    && find bootstrap/cache storage -type f -exec chmod 644 {} \;
 
 # Configure Apache
 ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
